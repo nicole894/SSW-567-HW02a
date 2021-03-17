@@ -36,6 +36,13 @@ class TestTriangles(unittest.TestCase):
     def testInvalidTriangles(self):
         self.assertEqual(classify_triangle(3, 3, 15), 'NotATriangle', '3,3,15 is not a triangle')
 
+    def testOutUpperBoundTriangles(self):
+        self.assertEqual(classify_triangle(344, 300, 199), 'InvalidInput', 'data is outside upper bound')
+
+    def testOutLowerBoundTriangles(self):
+        self.assertEqual(classify_triangle(0, -1, 2), 'InvalidInput', 'data is outside lower bound')
+
+
     def testInvalidDataTriangles(self):
         with self.assertRaises(TypeError):
             self.assertEqual(classify_triangle('x', 'y', 'z'), 'InvalidInput', 'x,y,z is not valid input')
